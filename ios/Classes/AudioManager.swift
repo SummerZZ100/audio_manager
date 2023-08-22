@@ -239,7 +239,13 @@ public extension AudioManager {
         stop()
         queue.removeAllItems()
         _playingMusic.removeAll()
+        
         UIApplication.shared.endReceivingRemoteControlEvents()
+        
+        print("remove -== 清除锁屏提示视图");
+        let center = MPNowPlayingInfoCenter.default()
+        center.nowPlayingInfo?.removeAll();
+
     }
 }
 private enum AudioError {
