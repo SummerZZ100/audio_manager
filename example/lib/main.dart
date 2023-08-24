@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
 
   void setupAudio() {
     List<AudioInfo> _list = [];
-    list.forEach((item) => _list.add(AudioInfo(item["url"],
+    list.forEach((item) => _list.add(AudioInfo(url: item["url"],
         title: item["title"], desc: item["desc"], coverUrl: item["coverUrl"])));
 
     AudioManager.instance.audioList = _list;
@@ -133,7 +133,7 @@ class _MyAppState extends State<MyApp> {
     final file = File("${appDocDir.path}/aLIEz.m4a");
     file.writeAsBytesSync(audio);
 
-    AudioInfo info = AudioInfo("file://${file.path}",
+    AudioInfo info = AudioInfo(url: "file://${file.path}",
         title: "file", desc: "local file", coverUrl: "assets/aLIEz.jpg");
 
     list.add(info.toJson());

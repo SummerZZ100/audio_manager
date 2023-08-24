@@ -193,7 +193,7 @@ class AudioManager {
     cover = cover;
     desc = desc;
 
-    _info = AudioInfo(url, title: title, desc: desc, coverUrl: cover);
+    _info = AudioInfo(url:url, title: title, desc: desc, coverUrl: cover);
     _audioList.insert(0, _info!);
     return await play(index: 0, auto: auto);
   }
@@ -207,8 +207,8 @@ class AudioManager {
   }
 
   Future<String> startInfo(AudioInfo audio, {required bool auto}) async {
-    return await start(audio.url, audio.title,
-        desc: audio.desc, cover: audio.coverUrl);
+    return await start(audio.url ?? "", audio.title ?? "",
+        desc: audio.desc ?? "", cover: audio.coverUrl ?? "");
   }
 
   /// Play specified subscript audio if you want
@@ -234,8 +234,8 @@ class AudioManager {
       "desc": _info!.desc,
       "cover": _info!.coverUrl,
       "isAuto": _auto,
-      "isLocal": !regx.hasMatch(_info!.url),
-      "isLocalCover": !regx.hasMatch(_info!.coverUrl),
+      "isLocal": !regx.hasMatch(_info!.url ?? ""),
+      "isLocalCover": !regx.hasMatch(_info!.coverUrl ?? ""),
     });
     return result;
   }
