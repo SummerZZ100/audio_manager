@@ -32,6 +32,9 @@ class AudioInfo {
     if(audioTitle == null){
       audioTitle = title ?? "";
     }
+    if(desc == null){
+      desc = singer ?? "";
+    }
   }
 
   AudioInfo.fromJson(dynamic json) {
