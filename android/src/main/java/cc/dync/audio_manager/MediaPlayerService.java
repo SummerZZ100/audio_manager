@@ -191,7 +191,7 @@ public class MediaPlayerService extends Service {
         // 停止
         Intent intentStop = new Intent(ACTION_STOP);
         PendingIntent stopPendingIntent = PendingIntent.getBroadcast(this, STOP_PENDING_REQUESTS, intentStop, PendingIntent.FLAG_CANCEL_CURRENT);
-        views.setOnClickPendingIntent(R.id.iv_cancel, stopPendingIntent);
+//        views.setOnClickPendingIntent(R.id.iv_cancel, stopPendingIntent);
 
         builder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
                 // 设置状态栏小图标
@@ -237,9 +237,10 @@ public class MediaPlayerService extends Service {
             views.setTextViewText(R.id.tv_name, title);
             if (desc != null) views.setTextViewText(R.id.tv_author, desc);
             if (isPlaying) {
-                views.setImageViewResource(R.id.iv_pause, android.R.drawable.ic_media_pause);
+//                views.setImageViewResource(R.id.iv_pause, android.R.drawable.ic_media_pause);
+                views.setImageViewResource(R.id.iv_pause, R.drawable.zanting_o);
             } else {
-                views.setImageViewResource(R.id.iv_pause, android.R.drawable.ic_media_play);
+                views.setImageViewResource(R.id.iv_pause, R.drawable.bofang_o);
             }
         }
 
